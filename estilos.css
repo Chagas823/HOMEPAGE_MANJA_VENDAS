@@ -1,10 +1,11 @@
 /*ARQUIVO CSS*/
 body{
-background-color:white;
+background:#FFFFFF
+color black;
 }
 
 h1{
-    color:maroon;
+    color: #00f;
     font-size: 20px;
 }
 
@@ -22,10 +23,16 @@ p{
     border: 1px solid gray;
 }
 
-a:link {color:green;}
-a:visited{color:yellow;}
-a:hover{color: black}
+a{
+    padding-left: 40px;
+    text-decoration: underline;
+}
+
+a:link {color: blue}
+a:visited{color: gray}
+a:hover{color: orange}
 a:active{color:blue;}
+
 
 
 
