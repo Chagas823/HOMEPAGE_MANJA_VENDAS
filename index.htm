@@ -22,12 +22,20 @@
     </p>
     <!--Criação de formulário para captação de Leads-->
     <h3>Ficou interessado. Tá esperando o quê para adquirir? Faça seu cadastro comece a utilizar AGORA!</h3> 
+    
     <form name="CadastroMV" action="" method="post">
-        Entre com o Nome: <input type="text" name="nome" alt="fulano de tal"/>
-        Entre com o E-mail: <input type="text" name="email" alt="fulanodetal@dominio.com.br"/>
-        Entre com o Telefone: <input type="text" name="fone" alt="(00)00000-0000"/>
-        <input type="button" name="btn_validar" value="validar" onclick="validarDados()"/>
-    </form>
+        <fieldset>
+        <legend>Formulário</legend>
+        <label for="nome">Entre com o Nome:</label><br>
+        <input type="text" id="nome" name="nome" value="" placeholder="Seu nome aqui"/><br>
+        <label for="email">Entre com o seu e-mail:</label><br>
+        <input type="text" id="email" name="email" value="" placeholder="Seu email aqui"/><br>
+        <label for="fone">Entre com o seu telefone:</label><br>
+        <input type="text" id="fone" name="fone" style="margin-bottom: 5px;" placeholder="Fone - Ex: (00)00000-0000"/><br>
+        <label>Mensagem:</label><br><textarea class="msg" cols="35" rows="8" style="margin-top: 5px;"></textarea><br>
+        <input type="button" style=margin-top:5px; name="btn_validar" value="Enviar" onclick="validarDados()"/><br>
+        </fieldset>
+    </div>
     <!--Fechamento do formulário-->
 
     <!--Iniciar implementação em Javascript-->
@@ -47,16 +55,17 @@
         fone = document.CadastroMV.fone.value;
         
         var numero = /[0-9]/;
-        var alfanumericos=/\*w/;
-        /*var dominio=//; PROCURAR A EXPRESSAO REGULAR PARA ISSO*/
-        var auxLetras = 0;
-       
+        /*var alfanumericos=/\*w/;*/
+        var naoAlfanumericos=/\*W/;
+        var contaDifLetra = 0;
+        /*var catchArroba=/@[a-z]/; PROCURAR EXEMPLO COM ARROBA*/
+        
         for(var i=0; i<nome.length; i++){
-            if(numero.test(nome[i] || alfanumericos.test(nome[i])))
-                auxLetras++;
+            if(numero.test(nome[i] || naoAlfanumericos.test(nome[i])))
+                contaDifLetra++;
         }
 
-        if (auxLetras > 0){
+        if (contaDifLetra > 0){
             window.alert("Digite o nome corretamente.");
         }else if(fone.length !=11){
             window.alert("Digite o número do telefone corretamente no formato: 00 00000 0000");
@@ -67,6 +76,6 @@
     //-->
     </script>
     
-    <a href="https://site.crateus.ufc.br/" target="_blank">Visite o site da UFC - Crateús</a>
+    <!--<a href="https://site.crateus.ufc.br/" target="_blank">Visite o site da UFC - Crateús</a>-->
 </body>    
 </html>
